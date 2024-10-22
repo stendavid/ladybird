@@ -138,8 +138,8 @@ Optional<FormattingContext::Type> FormattingContext::formatting_context_type_cre
         return Type::Grid;
 
     if (display.is_math_inside())
-        // HACK: Instead of crashing, create a dummy formatting context that does nothing.
-        return Type::InternalDummy;
+        // FIXME: Figure out what formatting context to use for MathML. For now, just use Block.
+        return Type::Block;
 
     if (creates_block_formatting_context(box))
         return Type::Block;
